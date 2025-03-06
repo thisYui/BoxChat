@@ -1,0 +1,190 @@
+:root {
+    --max-user-show: 8;
+}
+* {
+    box-sizing: border-box;
+}
+
+/* Toàn bộ thanh cuộn */
+::-webkit-scrollbar {
+    width: 8px; /* Độ rộng thanh cuộn dọc */
+    height: 8px; /* Độ cao thanh cuộn ngang */
+}
+
+/* Phần track (nền của thanh cuộn) */
+::-webkit-scrollbar-track {
+    background: #f0f0f0;
+    border-radius: 10px;
+}
+
+/* Phần thumb (thanh cuộn chính) */
+::-webkit-scrollbar-thumb {
+    background: #cfcfcf;
+    border-radius: 10px;
+}
+
+/* Hover vào thanh cuộn */
+::-webkit-scrollbar-thumb:hover {
+    background: #c8c8c8;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    height: 96vh;
+    background: #f0f0f0;
+    justify-content: space-between;
+}
+
+.chat--info {
+    height: 100%;
+    width: 30%;
+    display: block;
+    background-color: white;
+    padding: 0 10px;
+    border-radius: 15px;
+}
+
+.chat--info h1 {
+    font-size: 2rem;
+    margin-left: 15px;
+}
+
+.friend__box {    
+    height: calc(100% - 80px);
+    width: 100%;
+    display: block;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-radius: 8px;    
+}
+
+.friend__box--friend {
+    position: relative;
+    width: 100%;
+    height: 80px;
+    background-color: white;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+}
+
+.blur--layer {
+    display: none;
+    background: rgba(0, 0, 0, 0.05);    
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    position: absolute;
+    border-radius: 8px;
+}
+
+.friend__box--friend:not(.friend__box--friend__choosen):hover
+.blur--layer {
+    display: block;
+}
+
+.friend__box--friend__choosen {
+    background-color: rgb(230, 230, 230);
+}
+
+.friend__box--friend__avatar {
+    height: 60%;
+    border-radius: 50%;
+    margin: 10px;
+}
+
+.friend__box--friend__more {
+    text-align: center;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    display: none;
+    position: absolute;
+    z-index: 1000;
+}
+
+.friend__box--friend:hover .friend__box--friend__more {
+    display: block;
+    right: 30px;
+}
+
+.friend__box--friend__more:hover {
+    background-color: rgb(215, 215, 215);
+    
+}
+
+.chat__container {
+    background-image: linear-gradient(to right top, 
+    #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1,
+    #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff,
+    #46eefa, #5ffbf1);
+    width: 65%;
+
+    position: relative;
+    border-radius: 10px;
+    display: block;
+}
+
+.chat__container--name {
+    width: 100%;
+    height: 70px;
+    border-bottom: 1px solid rgb(227, 227, 227);
+    display: flex;
+}
+.chat__container--name__avatar {
+    border-radius: 50%;
+    height: 70%;
+    margin: auto 10px;
+}
+
+.chat__container--name__user {
+    margin: auto;
+    size: 60px;
+}
+
+.chat__container--message__box {
+    height: calc(100% - 70px - 70px);
+
+}
+.chat__container--sending__box {
+    height: 70px;
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    background-color: rgb(241, 141, 141);
+    border-radius: 0 0 10px 10px;
+    position: relative;
+    justify-content: space-evenly;
+}
+
+#fMessage {
+    height: 35px;
+    width: calc(100% - 80px);
+    border-radius: 15px;
+    border: none;
+    margin: auto 0;
+    padding: 0 10px;
+}
+
+.chat__container--sending__box--label {
+    height: 100%;
+    align-content: center;
+    display: flex;
+}
+
+.chat__container--sending__box--label:last-of-type {
+    width: calc(100% - 100px);
+}
+
+.chat__container--sending__box--label:last-of-type button {
+    width: 28px;
+    height: 28px;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    padding: 0;
+    margin: auto 0;
+    margin-left: 30px;
+}
